@@ -7,6 +7,10 @@
 # DB data
 database/data
 
+# xml iml
+*.xml
+*.iml
+
 # Logs
 
 logs
