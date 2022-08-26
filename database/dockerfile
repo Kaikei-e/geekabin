@@ -1,0 +1,6 @@
+FROM mariadb:10.9
+
+ADD ./env/my.cnf /etc/mysql/my.cnf 
+ADD ./env/.env /var/lib/mysql/.env
+
+EXPOSE 3306

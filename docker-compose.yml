@@ -1,0 +1,57 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    container_name: backend
+    tty: true
+    volumes:
+      - ./backend/apps:/apps
+    ports:
+      - "9000:9000"
+    depends_on:
+      - database
+    networks:
+      app_net:
+        ipv4_address: 172.16.238.10
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    tty: true
+    volumes:
+      - ./frontend/apps/:/apps
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    networks:
+      app_net:
+        ipv4_address: 172.16.238.20
+
+  database:
+    container_name: database
+    build: ./database/
+    volumes:
+      - ./database/init/:/docker-entrypoint-initdb.d/
+      - ./database/data/:/var/lib/mysql
+    env_file: ./database/env/.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - TIMEZONE=Asia/Tokyo
+    ports:
+      - 3306:3306
+    restart: always
+    networks:
+      app_net:
+        ipv4_address: 172.16.238.30
+
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
