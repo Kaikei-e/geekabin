@@ -12,8 +12,8 @@ services:
     depends_on:
       - database
     networks:
-      app_net:
-        ipv4_address: 172.16.238.10
+      the_net:
+        ipv4_address: 172.16.230.10
 
   frontend:
     build: ./frontend
@@ -26,8 +26,8 @@ services:
     depends_on:
       - database
     networks:
-      app_net:
-        ipv4_address: 172.16.238.20
+      the_net:
+        ipv4_address: 172.16.230.20
 
   database:
     container_name: database
@@ -45,13 +45,13 @@ services:
       - 3306:3306
     restart: always
     networks:
-      app_net:
-        ipv4_address: 172.16.238.30
+      the_net:
+        ipv4_address: 172.16.230.30
 
 networks:
-  app_net:
+  the_net:
     driver: bridge
     ipam:
       driver: default
       config:
-        - subnet: 172.16.238.0/24
+        - subnet: 172.16.230.0/24
