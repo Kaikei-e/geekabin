@@ -1,8 +1,6 @@
 import uvicorn
 
-from router.router import init_router
-
-app = init_router()
+from router.router import app
 
 
 @app.get("/")
