@@ -347,7 +347,14 @@
   dependencies:
     "@suid/utils" "0.3.0"
 
-"@suid/material@^0.5.1":
+"@suid/icons-material@^0.2.7":
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/@suid/icons-material/-/icons-material-0.2.7.tgz#fbe25dfeca6b6b40a63009ea5e40753f8c10fe3b"
+  integrity sha512-Qvi6eJaiUMSsHAvF7E2RfTQMtANdgIsxFTB2u78CsTTFjv5o3urkqPSKtnuzEhRBGkEA5y553AhLY/EW3UTerw==
+  dependencies:
+    "@suid/material" "0.5.1"
+
+"@suid/material@0.5.1", "@suid/material@^0.5.1":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@suid/material/-/material-0.5.1.tgz#5f79480c1907a0dbe6af28a1add62240ddaa6bf0"
   integrity sha512-3Gfsy8FvlhaokzcjJTQOTLBlpSYmhtl66BXNXWhnJlrQzxL0MSCg3QUhiaBn0atEjZ4MzZisPearr/JSsRoRsQ==
