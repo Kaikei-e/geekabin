@@ -1,12 +1,15 @@
 from datetime import datetime, timedelta
 from typing import Union
 
+from dotenv import load_dotenv
 from fastapi import Depends, HTTPException, APIRouter, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 import os
 from pydantic import BaseModel
 from passlib.context import CryptContext
 from jose import JWTError, jwt
+
+load_dotenv()
 
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
