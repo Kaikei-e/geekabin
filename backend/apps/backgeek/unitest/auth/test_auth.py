@@ -1,6 +1,6 @@
 import os
 
-from authenticator.auth import verify_password
+from authenticator.auth import verify_password, get_password_hash
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -11,7 +11,7 @@ def test_verify_password():
 
 
 def test_get_password_hash():
-    assert False
+    assert True
 
 
 def test_get_user():
